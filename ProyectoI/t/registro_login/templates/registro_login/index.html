@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <!-- Conexión al CSS -->
+    <link rel="stylesheet" href="{% static 'registro_login/style.css' %}">
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="{% url 'index' %}">
+                <img class="logo" src="{% static 'registro_login/german.png' %}" alt="Logo">
+            </a>
+        </nav>
+
+        <div class="text-box">
+            <h1>¿Qué quieres hacer en [\t]?</h1>
+        </div>
+
+        <div class="button">
+            <div class="cta">
+                <a href="{% url 'login' %}"><button class="btn primary">Login</button></a>
+                <a href="{% url 'registro' %}"><button class="btn secondary">Registro</button></a>
+                <a href="{% url 'servicios:ver_servicios' %}"><button class="btn primary">Ver servicios</button></a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+

@@ -1,9 +1,6 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
-app_name = 'servicios'
-
 urlpatterns = [
-    path('', views.ver_servicios, name = 'ver_servicios')
-
+    path('perfiles/', views.ver_perfil, name = 'ver_perfil')
 ]
