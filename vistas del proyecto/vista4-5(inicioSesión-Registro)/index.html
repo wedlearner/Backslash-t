@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inicio de sesión</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html">
+                <button class="volver">Volver</button>
+            </a>
+        </nav>
+
+        <div class="text-box">
+            <h1>Iniciar sesión</h1>
+        </div>
+        <div class="input-box">
+            <!------Formulario de inicio de sesión------->
+            <form id="form-login" class="login">
+                <input type="text" placeholder="Correo electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <div class="button">
+                    <button class="btn secondary" id="show-register">Registrarse</button>
+                    <input class="btn primary" type="submit" value="Listo">
+                </div>
+            </form>
+            <!------Fin del formulario de inicio de sesión------->
+            <!------Formulario de registro------->
+            <form id="form-register" class="register hidden">
+                <input type="text" placeholder="Nombre completo" required>
+                <input type="text" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <div class="button">
+                    <button class="btn secondary" id="show-login">Iniciar sesión</button>
+                    <input class="btn primary" type="submit" value="Listo">
+                </div>
+            </form>
+            <!------Fin del formulario de registro------->
+        </div>
+
+        <script src="script.js"></script>
+    </section>
+</body>
+</html>
