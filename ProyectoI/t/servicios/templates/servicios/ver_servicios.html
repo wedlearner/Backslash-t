@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Servicios Disponibles</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f4f4f8;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .contenedor {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .servicio {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .servicio:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .titulo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2a2a2a;
+            margin-bottom: 0.5rem;
+        }
+
+        .trabajador {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .descripcion {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .sin-servicios {
+            text-align: center;
+            color: #666;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Servicios Disponibles</h1>
+
+    {% if servicios %}
+        <div class="contenedor">
+            {% for s in servicios %}
+            <div class="servicio">
+                <div class="titulo">{{ s.titulo }}</div>
+                <div class="trabajador">Ofrecido por: {{ s.trabajador }}</div>
+                <div class="descripcion">{{ s.descripcion }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="sin-servicios">No hay servicios disponibles por el momento.</p>
+    {% endif %}
+</body>
+</html>
