@@ -39,7 +39,7 @@ def registro(request):
             if usuario :
                 login(request,usuario)
                 messages.success(request, "Se ha registrado correctamente")
-                return redirect('inicio')
+                return redirect('ver_perfil')
             else:
                 messages.error(request, "Inicio de sesión fallido, por favor inicie sesión nuevamente")
                 return redirect('login')
