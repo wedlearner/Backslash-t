@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inicio de sesión</title>
+    <link rel="stylesheet" href="{% static 'registro_login/registro.css' %}">
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="{% url 'tutorial' %}">
+                <button class="volver">Volver</button>
+            </a>
+        </nav>
+
+        <div class="text-box">
+            <h1>Iniciar sesión</h1>
+        </div>
+        <div class="input-box">
+            <!------Formulario de inicio de sesión------->
+            <form id="form-login" class="login" method = 'POST' action = "{% url 'login' %}">
+                {% csrf_token %}
+                <input type="text" name = 'username' placeholder="Nombre de usuario" required>
+                <input type="password" name = 'password' placeholder="Contraseña" required>
+                <div class="button">
+                    <button class="btn secondary" type="button" id="show-register">Registrarse</button>
+                    <input class="btn primary" type="submit" value="Listo">
+                </div>
+            </form>
+            <!------Fin del formulario de inicio de sesión------->
+            <!------Formulario de registro------->
+            <form id="form-register" class="register hidden" method = 'POST' action = "{% url 'registro' %}">
+                {% csrf_token %}
+                <input type="text" name = 'username' placeholder="Nombre de usuario" required>
+                <!---<input type="text" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')" required>--->
+                <input type="email" name = 'email' placeholder="Correo electrónico" required>
+                <input type="password" name = 'password1'placeholder="Contraseña" required>
+                <input type="password" name = 'password2' placeholder="Confirme su contraseña" required>
+                <div class="button">
+                    <button class="btn secondary" type = "button" id="show-login">Iniciar sesión</button>
+                    <input class="btn primary" type="submit" value="Listo">
+                </div>
+            </form>
+            <!------Fin del formulario de registro------->
+        </div>
+
+        <script src="{% static 'registro_login/registro.js' %}"></script>
+    </section>
+</body>
+</html>

@@ -1,0 +1,157 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #ffdfb3;
+}
+
+.barra-superior{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-image: linear-gradient(rgba(255, 223, 179, 0.7), rgb(69, 33, 0, 0.7)), url(../imágenes/jardinero.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.volver{
+    position: absolute;
+    left: 0;
+    text-decoration: none;
+    background-color: #452100;
+    color: #ffdfb3;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 35px;
+    transition: background-color 0.3s;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo{
+    height: 40px;
+}
+
+.header{
+    min-height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: block;
+}
+
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/*
+nav img{
+    width: 150px;
+}
+
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.nav-links ul li::after{
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+*/
+
+
+.text-box{
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    margin-bottom: 0px;
+    transform: translate(-50%,-190%);
+    text-align: center;
+    color: #2f1700;
+    font-size: 23px;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    margin-top: 15rem;
+
+}
+
+.cta{
+    display:inline-flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.btn{
+    display: inline-flex;       /* permite centrar contenido */
+    flex-direction: column;
+    align-items: center;        /* centra horizontalmente */
+    justify-content: center;    /* centra verticalmente */
+    padding: 18px 40px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.18);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    min-width: 30%;
+    height: 430px;
+    text-align: center;
+    margin: 1rem;
+    background-color: #452100;
+    color: #ffdfb3;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.btn_text{
+    height: auto;
+    display: block;
+}
+
+.btn:hover,
+.btn:focus{
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    outline: none;
+    background-color: #2f1700;
+}
