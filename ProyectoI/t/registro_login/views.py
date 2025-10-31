@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages 
 from .forms import RegistroForm
-from perfiles.models import Perfil
 def index(request):
     return render(request, 'registro_login/index.html', {})
 
@@ -13,7 +12,7 @@ def login_usuario(request):
         usuario = authenticate(request, username = nombre, password = contraseña)
         if usuario is not None:
             login(request,usuario)
-            return redirect('ver_perfil')
+            return redirect('inicio')
         else:
             return redirect('login')
     else:
@@ -32,10 +31,11 @@ def registro(request):
         form = RegistroForm(request.POST)
         if form.is_valid():
             usuario = form.save()
+
             nombre = form.cleaned_data['username']
             contraseña = form.cleaned_data['password1']
+
             usuario = authenticate(request, username = nombre, password = contraseña)
-            Perfil.objects.create(user = usuario, nombre = '')
             if usuario :
                 login(request,usuario)
                 messages.success(request, "Se ha registrado correctamente")
