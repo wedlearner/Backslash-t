@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "san francisco";
+    font: inherit;
+}
+
+.barra-superior{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-image: linear-gradient(rgba(255, 223, 179, 0.7), rgb(69, 33, 0, 0.7)), url(../imágenes/jardinero.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.logo{
+    height: 40px;
+}
+
+.volver{
+    position: absolute;
+    left: 0;
+    text-decoration: none;
+    background-color: #452100;
+    color: #ffdfb3;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 35px;
+    transition: background-color 0.3s;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.header{
+    width: 100%;
+    min-height: 100vh;
+    
+    padding-top: 90px;
+}
+
+body{
+    background-color: #ffdfb3;
+}
+
+.imagen{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #2f1700;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+.info_arriba{
+    display: block;
+    text-align: center;
+    
+}
+
+.info{
+    display: flex;
+    gap: 3rem;
+    text-align: center;
+    justify-content: center;
+    margin-top: -30px;
+    margin-bottom: -120px;
+}
+
+.texto{
+    display: flex;
+    gap: 3rem;
+    background-color: #452100;
+    color: #ffdfb3;
+    padding: 10px;
+    border-radius: 20px;
+    border: 3px solid #2f1700;
+}
+
+.datos_personales{
+    margin-bottom: 190px;
+    margin-top:100px;
+    font-size: 30px;
+}
+
+.servicio{
+    font-size: 50px;
+}
+
+.info_abajo.texto{
+    margin: 0;
+}
+
+.desc{
+    margin: 0 10%;
+    margin-bottom: 50px;
+    padding: 20px;
+    font-size: 25px
+}
+
+.first{
+    gap: 33%;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+h6{
+    font-size: 25px;
+}
+
+label{
+    font-size: 24px;
+    margin: 0 10%;
+}

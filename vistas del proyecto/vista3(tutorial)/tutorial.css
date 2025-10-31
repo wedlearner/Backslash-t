@@ -1,5 +1,10 @@
+*{
+    font-family: "san francisco";
+}
+
 body{
     margin: 0;
+    background-color: #ffdfb3;
 }
 
 .barra-superior{
@@ -8,7 +13,7 @@ body{
     left: 0;
     width: 100%;
     height: 70px;
-    background-image: linear-gradient(rgba(255, 223, 179, 0.7), rgb(69, 33, 0, 0.7)), url(imagenes/jardinero.jpg);
+    background-image: linear-gradient(rgba(255, 223, 179, 0.7), rgb(69, 33, 0, 0.7)), url(../imágenes/jardinero.jpg);
     background-position: center;
     background-size: cover;
     display: flex;
