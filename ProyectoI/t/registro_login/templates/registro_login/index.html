@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <!-- Conexión al CSS -->
-    <link rel="stylesheet" href="{% static 'registro_login/style.css' %}">
+    <link rel="stylesheet" href="{% static 'registro_login/index.css' %}">
 </head>
 <body>
     <section class="header">
@@ -22,9 +22,9 @@
 
         <div class="button">
             <div class="cta">
-                <a href="{% url 'login' %}"><button class="btn primary">Login</button></a>
-                <a href="{% url 'registro' %}"><button class="btn secondary">Registro</button></a>
-                <a href="{% url 'servicios:ver_servicios' %}"><button class="btn primary">Ver servicios</button></a>
+                <a href="{% url 'tutorial' %}"><button class="btn primary">Ofrecer Servicios</button></a>
+                <a href="{% url 'servicios:ver_servicios' %}"><button class="btn secondary">Contratar Servicios</button></a>
+                
             </div>
         </div>
     </section>

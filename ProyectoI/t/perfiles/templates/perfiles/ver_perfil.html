@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f5f7fa; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .perfil-container { background: white; padding: 2rem 3rem; border-radius: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h2 { text-align: center; color: #333; margin-bottom: 1rem; }
+        .perfil-info p { margin: 0.5rem 0; }
+        .editar-btn { display: block; text-align: center; margin-top: 1rem; text-decoration: none; background: #007bff; color: white; padding: 0.6rem; border-radius: 0.5rem; transition: background 0.3s; }
+        .editar-btn:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="perfil-container">
+        <h2>Mi Perfil</h2>
+        <div class="perfil-info">
+            <p><strong>Nombre:</strong> {{ perfil.nombre }}</p>
+            <!---<p><strong>Fecha de Nacimiento:</strong> {{ perfil.fecha_nacimiento }}</p>--->
+            <p><strong>Teléfono:</strong> {{ perfil.telefono }}</p>
+            <p><strong>Localidad:</strong> {{ perfil.localidad }}</p>
+            <p><strong>Email:</strong> {{ perfil.mail }}</p>
+            <p><strong>Descripción:</strong> {{ perfil.descripcion }}</p>
+            <!-- Agrega otros campos de perfil si los tienes -->
+        </div>
+        <a href="{% url 'editar_perfil' %}" class="editar-btn">Editar Perfil</a>
+    </div>
+</body>
+</html>
