@@ -23,7 +23,7 @@ urlpatterns = [
     path('', RedirectView.as_view(url='/registro_login/',permanent = True)),
     path('admin/', admin.site.urls),
     path('registro_login/', include('registro_login.urls')),
-    path('servicios/', include('servicios.urls')),
+    path('servicios/', include(('servicios.urls', 'servicios'), namespace='servicios')),
     path('perfiles/', include('perfiles.urls')),
     
 ]

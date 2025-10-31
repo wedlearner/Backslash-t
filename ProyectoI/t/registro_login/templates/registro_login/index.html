@@ -4,30 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <!-- Conexión al CSS -->
+    <title>inicio</title>
     <link rel="stylesheet" href="{% static 'registro_login/index.css' %}">
 </head>
 <body>
+    <header class="barra-superior">
+        <a href="{% url 'index' %}" class="volver">Volver</a>
+        <img src="../imágenes/logo.png" class="logo"/>
+    </header>
+    
     <section class="header">
-        <nav>
-            <a href="{% url 'index' %}">
-                <img class="logo" src="{% static 'registro_login/german.png' %}" alt="Logo">
-            </a>
-        </nav>
 
+        
         <div class="text-box">
-            <h1>¿Qué quieres hacer en [\t]?</h1>
+            <h1>Que quieres hacer en [\t]?</h1>
         </div>
 
         <div class="button">
             <div class="cta">
-                <a href="{% url 'tutorial' %}"><button class="btn primary">Ofrecer Servicios</button></a>
-                <a href="{% url 'servicios:ver_servicios' %}"><button class="btn secondary">Contratar Servicios</button></a>
-                
+                <a href="{% url 'tutorial' %}" class="btn primary"><p class="btn_text">Ofrecer servicio</p></a>
+                <a href="{% url 'servicios:ver_servicios' %}" class="btn secondary"><p class="btn_text">Buscar servicio</p></a>
             </div>
         </div>
+
+
     </section>
+    
 </body>
 </html>
-

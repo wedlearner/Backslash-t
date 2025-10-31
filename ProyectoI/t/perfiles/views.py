@@ -6,7 +6,12 @@ from .forms import PerfilForm
 @login_required
 def ver_perfil(request):
     perfil = request.user.perfil
-    return render(request, 'perfiles/ver_perfil.html', {'perfil':perfil})
+    publicaciones = perfil.servicio_set.all()  
+    return render(request, 'perfiles/ver_perfil.html', {
+        'perfil': perfil,
+        'publicaciones': publicaciones
+    })
+
 
 @login_required
 def editar_perfil(request):

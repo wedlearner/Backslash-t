@@ -1,15 +1,15 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
         <title>Tutorial</title>
         <link rel="stylesheet" href="{% static 'perfiles/tutorial.css' %}">
     </head>
 
     <body>
         <header class="barra-superior">
-            <a href="" class="volver">Volver</a>
+            <a href="{% url 'index' %}" class="volver">Volver</a>
             <img src="{% static 'perfiles/logo.png' %}" class="logo"/>
         </header>
 
@@ -117,4 +117,4 @@
         </main>
     <script src="{% static 'perfiles/tutorial.js' %}"></script>
     </body>
-</html>
+</html>     

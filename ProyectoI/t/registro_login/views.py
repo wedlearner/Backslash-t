@@ -17,7 +17,7 @@ def login_usuario(request):
         else:
             return redirect('login')
     else:
-        return render(request, 'registro_login/registro.html',{})
+        return render(request, 'registro_login/inicio_sesion.html',{})
     
     
 def logout_usuario(request):
@@ -49,7 +49,7 @@ def registro(request):
         if request.user.is_authenticated:
             return redirect('ver_perfil')
         form = RegistroForm()
-    return render(request, 'registro_login/registro.html',{'form':form})
+    return render(request, 'registro_login/inicio_sesion.html',{'form':form})
 
         
     # Create your views here.
