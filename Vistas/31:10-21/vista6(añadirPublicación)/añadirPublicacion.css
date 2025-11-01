@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "san ferncisco";
+}
+
+.barra-superior{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-image: linear-gradient(rgba(255, 223, 179, 0.7), rgb(69, 33, 0, 0.7)), url(../imágenes/jardinero.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    background-color: #ffdfb3;
+}
+
+.volver{
+    position: absolute;
+    left: 0;
+    text-decoration: none;
+    background-color: #452100;
+    color: #ffdfb3;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 35px;
+    transition: background-color 0.3s;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo{
+    height: 40px;
+}
+
+.form-container {
+    margin-top: 70px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+}
+
+.volver-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #a57a48;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.volver-btn:hover {
+    background-color: #825e35;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 26px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background-color: #2a78d1;
+    color: white;
+    font-size: 18px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #1d5ea4;
+}
+
+.note {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
+}

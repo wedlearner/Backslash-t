@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publicar un servicio</title>
+  <link rel="stylesheet" href="añadirPublicacion.css">
+</head>
+<body>
+  <header class="barra-superior">
+        <a href="" class="volver" >Volver</a>
+        <img src="../imágenes/logo.png" class="logo"/>
+    </header>
+
+  <div class="form-container">
+
+    <h2>Publicar un servicio</h2>
+    <form>
+      <label for="servicio">¿Qué servicio ofreces?</label>
+      <input type="text" id="servicio" name="servicio" placeholder="Ej: Acompañamiento, jardinería, costura..." required>
+
+      <label for="precio">¿Cuánto cobras?</label>
+      <input type="number" id="precio" name="precio" placeholder="Ej: 10000" required>
+
+      <label for="descripcion">Añade una descripción de tu servicio</label>
+      <textarea id="descripcion" name="descripcion" placeholder="Describe brevemente lo que ofreces..." required></textarea>
+
+      <button type="submit"> Publicar servicio</button>
+    </form>
+    <p class="note">Tu publicación será visible una vez revisada.</p>
+  </div>
+
+</body>
+</html>

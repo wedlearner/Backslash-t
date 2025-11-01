@@ -1,0 +1,106 @@
+<?php
+session_start();
+
+// Si el usuario no ha iniciado sesión, redirige al login
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.html");
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tus publicaciones</title>
+  <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+
+  <header class="barra-superior">
+    <a href="" class="volver">Volver</a>
+    <img src="../imágenes/logo.png" class="logo"/>
+  </header>
+
+  <aside class="sidebar">
+    
+
+    <div class="profile-pic-container">
+      <img src="https://via.placeholder.com/120" alt="Foto de perfil" class="profile-pic" id="preview">
+      <label for="fileInput" class="edit-icon">✎</label>
+      <input type="file" id="fileInput" accept="image/*">
+    </div>
+
+    <div class="section">
+      <h3>Información pública</h3>
+      <ul>
+        <li><strong>Usuario:</strong> <?php echo $_SESSION['usuario']; ?></li>
+        <li>Edad</li>
+        <li>Número</li>
+        <li>Mail</li>
+        <li>Ubicación</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Configuración</h3>
+      <ul>
+        <li>Contraseña</li>
+        <li>Actividad</li>
+      </ul>
+    </div>
+
+    <!--  Botón de Cerrar sesión -->
+    <form action="logout.php" method="POST">
+      <button type="submit" class="cerrar-sesion">Cerrar sesión</button>
+    </form>
+  </aside>
+
+  
+  <main class="content">
+    <div class="content-header">
+      <h1>Tus publicaciones</h1>
+      <button class="add-btn">Añadir publicación</button>
+    </div>
+
+    <div class="post">
+      <div class="post-title">Mimamumimamamu</div>
+      <div class="post-buttons">
+        <button>Editar</button>
+        <button>Borrar</button>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-title">Mimamumimamamu 2</div>
+      <div class="post-buttons">
+        <button>Editar</button>
+        <button>Borrar</button>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-title">Mimemamomu</div>
+      <div class="post-buttons">
+        <button>Editar</button>
+        <button>Borrar</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    
+    const fileInput = document.getElementById('fileInput');
+    const preview = document.getElementById('preview');
+
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      if (file) {
+        preview.src = URL.createObjectURL(file);
+      }
+    });
+  </script>
+
+</body>
+</html>
