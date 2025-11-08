@@ -66,6 +66,12 @@
 <body>
     <h1>Servicios Disponibles</h1>
 
+    <form method="get" style="text-align:center; margin-top:1rem;">
+        <input type="text" name="q" placeholder="Buscar servicios, trabajadores o descripción..." value="{{ q }}" style="padding:0.5rem; width:60%; max-width:420px; border-radius:6px; border:1px solid #ccc;">
+        <button type="submit" style="padding:0.5rem 0.8rem; margin-left:0.5rem; border-radius:6px; border: none; background:#2a9d8f; color:#fff; cursor:pointer;">Buscar</button>
+        {% if q %}<div style="margin-top:0.6rem; color:#333;">Resultados para: <strong>{{ q }}</strong></div>{% endif %}
+    </form>
+
     {% if servicios %}
         <div class="contenedor">
             {% for s in servicios %}
@@ -77,7 +83,11 @@
             {% endfor %}
         </div>
     {% else %}
-        <p class="sin-servicios">No hay servicios disponibles por el momento.</p>
+        {% if q %}
+            <p class="sin-servicios">No se encontraron resultados para "{{ q }}".</p>
+        {% else %}
+            <p class="sin-servicios">No hay servicios disponibles por el momento.</p>
+        {% endif %}
     {% endif %}
 </body>
 </html>
