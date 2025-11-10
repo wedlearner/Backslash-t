@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Servicios Disponibles</title>
+    <style>
+        * {
+            font-family: "San Francisco", "Segoe UI", sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffdfb3;
+            margin: 0;
+            padding: 40px 60px;
+            color: #2f1700;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2f1700;
+            font-size: 45px;
+            margin-bottom: 40px;
+        }
+
+        .contenedor {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .servicio {
+            background-color: #ffdaa6;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            padding: 25px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .servicio:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        .titulo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2f1700;
+            margin-bottom: 10px;
+        }
+
+        .trabajador {
+            color: #6b4a2b;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .precio {
+            font-size: 22px;
+            color: #3c1f00;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .descripcion {
+            font-size: 18px;
+            color: #2f1700;
+            line-height: 1.5;
+        }
+
+        .sin-servicios {
+            text-align: center;
+            color: #2f1700;
+            margin-top: 50px;
+            font-style: italic;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Servicios Disponibles</h1>
+
+    {% if servicios %}
+        <div class="contenedor">
+            {% for s in servicios %}
+            <div class="servicio">
+                <div class="titulo">{{ s.titulo }}</div>
+                <div class="trabajador">Ofrecido por: {{ s.trabajador.nombre }}</div>
+                <div class="precio">Precio: ${{ s.precio }}</div>
+                <div class="descripcion">{{ s.descripcion }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="sin-servicios">No hay servicios disponibles por el momento.</p>
+    {% endif %}
+</body>
+</html>

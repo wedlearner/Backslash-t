@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Perfil</title>
+
+    <style>
+        *{ font-family: "san francisco"; }
+        body{ margin: 0; background-color: #ffdfb3; }
+
+        .barra-superior{
+            position: fixed; top: 0; left: 0; width: 100%; height: 70px;
+            background-image: linear-gradient(rgba(255, 223, 179, 0.7), rgb(69, 33, 0, 0.7)), url('jardinero.jpg');
+            background-position: center; background-size: cover;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 1000;
+        }
+
+        .logo{ height: 40px; }
+
+        .volver{
+            position: absolute; left: 0; text-decoration: none;
+            background-color: #452100; color: #ffdfb3;
+            padding: 15px 20px; border-radius: 5px;
+            font-size: 35px; transition: background-color 0.3s;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+        }
+        .volver:hover{ background-color: #2f1700; }
+
+        .principal{ margin-top: 70px; }
+
+        .barra-derecha{
+            position: fixed; top: 70px; right: 0;
+            width: 220px; height: calc(100vh - 70px);
+            background-color: #452100; color: #ffdfb3;
+            display: flex; flex-direction: column; align-items: center;
+            padding: 20px 15px; box-sizing: border-box;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+        }
+
+        .nombre{ text-align: center; margin-bottom: 15px; }
+        .nombre h3{ margin:5px; font-size: 35px; }
+
+        .imagen-perfil{
+            width: 150px; height: 150px; border-radius: 50%;
+            object-fit: cover; border: 3px solid #2f1700; margin-bottom: 30px;
+        }
+
+        .botones{ display: flex; flex-direction: column; gap: 10px; }
+
+        .boton{
+            text-decoration: none; text-align: center;
+            background-color: #452100; color: #ffdfb3;
+            padding: 20px 45px; border-radius: 5px;
+            font-size: 35px; transition: background-color 0.3s;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+        }
+        .boton:hover{ background-color: #2f1700; }
+
+        form{
+            font-size: 25px;
+            display: flex; flex-direction: column;
+            gap: 20px;
+            background-color: #ffdaa6;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+        }
+
+        input, textarea{
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #b47d41;
+            font-size: 20px;
+            background-color: #fff5e6;
+        }
+
+        button{
+            background-color: #452100;
+            color: #ffdfb3;
+            border: none;
+            border-radius: 5px;
+            font-size: 30px;
+            padding: 15px 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover{ background-color: #2f1700; }
+    </style>
+</head>
+
+<body>
+    <div class="barra-superior">
+        <a href="{% url 'ver_perfil' %}" class="volver">⮜</a>
+        <img src="logo.png" alt="Logo" class="logo">
+    </div>
+
+    <div class="barra-derecha">
+        <div class="nombre">
+            <img src="perfil_default.jpg" alt="Imagen de perfil" class="imagen-perfil">
+            <h3>{{ request.user.username }}</h3>
+        </div>
+        <div class="botones">
+            <a href="{% url 'ver_perfil' %}" class="boton">Ver perfil</a>
+        </div>
+    </div>
+
+    <div class="principal" style="margin-right: 220px; padding: 40px;">
+        <h2 style="font-size: 45px; color: #2f1700;">Editar Perfil</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Guardar cambios</button>
+        </form>
+    </div>
+</body>
+</html>
