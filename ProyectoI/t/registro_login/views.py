@@ -1,0 +1,66 @@
+from django.shortcuts import render, redirect, reverse
+from django.contrib.auth import login, logout, authenticate
+from django.contrib import messages 
+from .forms import RegistroForm
+from perfiles.models import Perfil
+from django.http import HttpResponseRedirect
+
+def index(request):
+    return render(request, 'registro_login/index.html')
+
+def login_usuario(request):
+    if request.method == "POST":
+        nombre = request.POST['username']
+        contraseña = request.POST['password']
+        usuario = authenticate(request, username = nombre, password = contraseña)
+
+        if usuario is not None:
+            login(request,usuario)
+            #print("Si loguie soy bacan")
+           #response = redirect('registro_login:index')
+            #response.set_cookie('username', nombre)
+           # response.set_cookie('login_status', True)
+            return redirect('perfiles:ver_perfil')
+        else:
+            #print("El codigo me papeo :c")
+            return redirect('registro_login:login')
+    else:
+        return render(request, 'registro_login/inicio_sesion.html',{})
+    
+    
+def logout_usuario(request):
+    logout(request)
+    response = HttpResponseRedirect(reverse('registro_login:index'))
+    response.delete_cookie('username')
+    response.delete_cookie('login_status')
+    return response
+
+def inicio(request):
+    return render(request, 'registro_login/inicio.html', {})
+
+def registro(request):
+    if request.method == 'POST':
+        form = RegistroForm(request.POST)
+        if form.is_valid():
+            usuario = form.save()
+            nombre = form.cleaned_data['username']
+            contraseña = form.cleaned_data['password1']
+            usuario = authenticate(request, username = nombre, password = contraseña)
+            Perfil.objects.create(user = usuario, nombre = '')
+            if usuario :
+                login(request,usuario)
+                messages.success(request, "Se ha registrado correctamente")
+                return redirect('ver_perfil')
+            else:
+                messages.error(request, "Inicio de sesión fallido, por favor inicie sesión nuevamente")
+                return redirect('login')
+        else:
+            print(form.errors)
+    else:
+        if request.user.is_authenticated:
+            return redirect('ver_perfil')
+        form = RegistroForm()
+    return render(request, 'registro_login/inicio_sesion.html',{'form':form})
+
+        
+    # Create your views here.
