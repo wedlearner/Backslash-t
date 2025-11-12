@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta</title>
+    
+    <style>
+
+        body {
+            margin: 0;
+            font-family: "San Francisco";
+            background: linear-gradient(to bottom, #d7b896, #f0d8b4);
+            display: flex;
+            min-height: 100vh;
+            color: #222;
+        }
+
+        .barra-superior{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-image: linear-gradient(rgba(255, 223, 179, 0.7), rgb(69, 33, 0, 0.7)), url(); /*Aquí va el banner de jardinero*/
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .volver{
+            position: absolute;
+            left: 0;
+            text-decoration: none;
+            background-color: #452100;
+            color: #ffdfb3;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-size: 35px;
+            transition: background-color 0.3s;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo{
+            height: 40px;
+        }
+
+        .sidebar {
+            width: 300px;
+            position: fixed;
+            top: 70px;
+            bottom: 0;
+            overflow-y: auto;
+            background-color: #f8f3ec;
+            padding: 20px;
+            box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cerrar-sesion {
+            background-color: #b84747;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+            display: inline-block;
+            text-decoration: none;
+
+        }
+        .cerrar-sesion:hover {
+            background-color: #922d2d;
+            text-decoration: none;
+        }
+        .profile-pic-container {
+            position: relative;
+            text-align: center;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #b6895b;
+        }
+        .edit-icon {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            padding: 6px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .section {
+            width: 92%;
+            margin-top: 25px;
+            background-color: #f2e4d5;
+            padding: 10px;
+            border-radius: 5px;
+
+        }
+        .section h3 {
+            margin: 0;
+            font-size: 22px;
+            color: #5b4027;
+            border-bottom: 1px solid #b08a5c;
+            padding-bottom: 5px;
+        }
+        .section ul {
+            list-style: none;
+            padding-left: 15px;
+            margin: 10px 0;
+        }
+        .section ul li {
+            margin-bottom: 12px;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 3px;
+        }
+
+        .section ul li input[type="text"] {
+            width: 95%;
+            padding: 4px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .section ul li button {
+            margin-top: 0;
+            align-self: flex-start;
+            padding: 6px 10px;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+            margin-top: 70px;
+            padding-left: 380px;
+        }
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #2f1e0e;
+        }
+        .add-btn {
+            display: inline-block;       
+            text-decoration: none;       
+            background-color: #a57a48;
+            color: #fff;                
+            padding: 10px 15px;
+            border: none;                
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .add-btn:hover {
+            background-color: #825e35;
+            text-decoration: none;
+        }
+        .post {
+            border: 1px solid #6d5031;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            background-color: #fff9f3;
+        }
+        .post-title {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .post-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .post-buttons button {
+            background-color: #a57a48;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .post-buttons button:hover {
+            background-color: #825e35;
+}
+
+    </style>
+
+</head>
+<body>
+
+    <header class="barra-superior">
+        <a href="{% url 'perfiles:tutorial_sesionIniciada' %}" class="volver">Volver</a>
+        <img src="" class="logo"/> <!--Aquí va el logo de la página-->
+    </header>
+
+    <aside class="sidebar">
+
+        <div class="profile-pic-container">
+            <img src="" class="profile-pic" id="preview"> <!-- Aquí va la foto de perfil-->
+            <label for="fileInput" class="edit-icon">✎</label>
+            <input type="file" id="fileInput" accept="image/*">
+        </div>
+
+        <div class="section">
+            <h3>Información pública</h3>
+            <ul>
+            
+                <li>
+                    <form method = "POST" action = "{% url 'perfiles:editar_perfil' %}">
+                    {% csrf_token %}
+                    Nombre: {{perfil.nombre}}
+                    <input type="text" name = "nombre" placeholder="Cambiar nombre...">
+                    <button type = "submit">Confirmar</button>
+                    </form>
+                </li>
+                <li>
+                    <form method="POST" name = "telefono" action = "{% url 'perfiles:editar_perfil' %}">
+                    {% csrf_token %}
+                    Número de contacto: {{perfil.telefono}}
+                    <input type="text" name = "telefono" placeholder="Cambiar número...">
+                    <button>Confirmar</button>
+                    </form>
+                </li>
+                <li>
+                    <form method="POST" name = "mail" action = "{% url 'perfiles:editar_perfil' %}">
+                    {% csrf_token %}
+                    Mail: {{user.mail}}
+                    <input type="text" name = "mail" placeholder="Cambiar correo...">
+                    <button>Confirmar</button>
+                    </form>
+                </li>
+                <li>
+                    <form method="POST" name = "localidad" action = "{% url 'perfiles:editar_perfil' %}">
+                    {% csrf_token %}
+                    Ubicación: {{perfil.localidad}}
+                    <input type="text" name = "localidad" placeholder="Cambiar ubicación...">
+                    <button>Confirmar</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Configuración</h3>
+            <ul>
+                <li>
+                    Contraseña
+                    <input type="text" placeholder="Contraseña...">
+                    <button>Confirmar</button>
+                </li>
+                <li>
+                    Actividad
+                    <button>Cambiar actividad</button>
+                </li>
+            </ul>
+        </div>
+
+        <!--  Botón de Cerrar sesión -->
+        <form action="../../static/perfiles/logout.php" method="POST">
+            <a href="{% url 'registro_login:logout' %}" class="cerrar-sesion">Cerrar sesión</a>
+        </form>
+
+        <button class="borrar-cuenta">Borrar cuenta</button>
+    </aside>
+
+        <!--publicaciones -->
+    <main class="content">
+        <div class="content-header">
+            <h1>Tus publicaciones</h1>
+            <div class="botones">
+                <a href="{% url 'servicios:agregar_servicio' %}" class="add-btn">Añadir publicación</a>
+                <a href="{% url 'perfiles:tutorial_sesionIniciada' %}" class="add-btn">Tutorial</a>
+            </div>
+        </div>
+        
+        {% for publicacion in publicaciones %}
+        <div class="post">
+            <h3>{{ publicacion.titulo }}</h3>
+            <p>{{ publicacion.descripcion }}</p>
+            <p><strong>Precio:</strong> ${{ publicacion.precio }}</p>
+            <small>Publicado por: {{ publicacion.trabajador.nombre }}</small>
+            
+            <div class="post-buttons">
+                <a href="{% url 'servicios:editar_servicio' publicacion.id %}"><button>Editar</button></a>
+                <a href="{% url 'servicios:eliminar_servicio' publicacion.id %}"><button>Borrar</button></a>
+            </div>
+        </div>
+        {%empty %}
+        <p style="font-size: 22px; color: #2f1700;">Aún no tienes publicaciones.</p>
+        {% endfor %}
+    </main>
+
+    <script>
+    
+        const fileInput = document.getElementById('fileInput');
+        const preview = document.getElementById('preview');
+
+        fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0];
+        if (file) {
+            preview.src = URL.createObjectURL(file);
+        }
+        });
+    </script>
+
+</body>
+</html>

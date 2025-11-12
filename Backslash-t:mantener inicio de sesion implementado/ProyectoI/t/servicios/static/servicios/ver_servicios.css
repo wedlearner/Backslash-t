@@ -1,0 +1,193 @@
+body{
+    margin: 0;
+}
+
+.barra-superior{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-image: linear-gradient(rgba(255, 223, 179, 0.7), rgb(69, 33, 0, 0.7)), url(jardinero.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.logo{
+    height: 40px;
+}
+
+.volver{
+    position: absolute;
+    left: 0;
+    text-decoration: none;
+    background-color: #452100;
+    color: #ffdfb3;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 35px;
+    transition: background-color 0.3s;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.volver:hover{
+    background-color: #2f1700;
+}
+
+.principal{
+    margin-top: 70px;
+}
+
+.barra-derecha{
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 400px;
+    height: calc(100vh - 70px);
+    background-color: #452100;
+    color: #ffdfb3;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+}
+
+.busqueda{
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.busqueda input{
+    flex: 1;
+    padding: 8px 10px;
+    background-color: #ffedd4;
+    border: 1px solid #2f1700;
+    color: #452100;
+    border-radius: 6px 0 0 6px;
+    font-size: 20px;
+}
+
+.busqueda button{
+  padding: 8px 12px;
+  border: 1px solid #2f1700;
+  border-left: none;
+  background-color: #ffe5bd;
+  border-radius: 0 6px 6px 0;
+  font-size: 17px;
+  transition: background-color 0.2s;
+}
+
+.busqueda button:hover{
+  background-color: #ffdaa6;
+}
+
+.filtros h3{
+    font-size: 32px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    color: #ffe5bd;
+    border-bottom: 1px solid #ffe5bd;
+    padding-bottom: 5px;
+}
+
+.opcion{
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.scroll{
+  display: flex;
+  padding-right: 400px;
+  background-color: #ffdfb3;
+  box-sizing: border-box;
+}
+
+.publicaciones {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 15px;
+  padding: 25px;
+}
+
+.publicacion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffd49d;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  padding: 15px 25px;
+  text-decoration: none;
+  color: #452100;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+}
+
+.publicacion:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.foto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 25px;
+}
+
+.info {
+  flex: 1;
+}
+
+.trabajo {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.datos {
+  margin: 5px 0;
+  font-size: 22px;
+  color: #452100;
+}
+
+.tarifa {
+  font-size: 20px;
+  font-weight: 600;
+  color: #452100;
+}
+.fecha {
+  min-width: 200px;
+  text-align: right;
+  font-size: 20px;
+  color: #452100;
+}
+
+@media (max-width: 1000px) {
+  .barra-derecha {
+    position: static;
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+  }
+
+  .scroll {
+    padding-right: 0;
+    flex-direction: column;
+  }
+
+  .publicaciones {
+    width: 100%;
+    padding: 15px;
+  }
+}
